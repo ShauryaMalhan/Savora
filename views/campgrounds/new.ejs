@@ -1,0 +1,62 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <h1 class="text-center">New Campground</h1>
+    <div class="col-6 offset-3">
+        <form action="/campground" method="POST" novalidate class="needs-validation">
+            <div class="mb-3">
+                <label class="form-label" for="title">Title: </label>
+                <input class="form-control" type="text" name="campground[title]" id="title" required placeholder="Title">
+                <div class="valid-feedback">looks good!!</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="location">Location: </label>
+                <input class="form-control" type="text" name="campground[location]" id="location" required placeholder="Location">
+                <div class="valid-feedback">looks good!!</div>
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price: </label>
+                <div class="input-group">
+                    <span class="input-group-text" id="price-label">$</span>
+                    <input type="text" class="form-control" placeholder="0.00" id="price" required aria-label="price" aria-describedby="price-label" name="campground[price]">
+                    <div class="valid-feedback">looks good!!</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Image: </label>
+                <input class="form-control" type="text" name="campground[image]" id="location" required placeholder="Image">
+                <div class="valid-feedback">looks good!!</div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="image">Description: </label>
+                <textarea class="form-control" type="text" name="campground[description]" id="location" placeholder="Description" required></textarea>
+                <div class="valid-feedback">looks good!!</div>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success" type="submit">Submit</button>
+            </div>
+        </form>
+        <a href="/campground">Cancel</a>
+    </div>
+</div>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
